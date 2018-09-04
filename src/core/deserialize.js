@@ -17,7 +17,9 @@ function deserializeStarProps(schema, obj, json) {
     for (var key in json) if (!(key in schema.props) && !schemaHasAlias(schema, key)) {
         var value = json[key]
         // when deserializing we don't want to silently ignore 'unparseable data' to avoid confusing bugs
-        invariant(isPrimitive(value), "encountered non primitive value while deserializing '*' properties in property '" + key + "': " + value)
+//        invariant(isPrimitive(value), "encountered non primitive value while deserializing '*' properties in property '" + key + "': " + value)
+        if (!isPrimitive(value)) continue;
+
         obj[key] = value
     }
 }
