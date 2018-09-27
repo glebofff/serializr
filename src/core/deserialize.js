@@ -24,12 +24,7 @@ function deserializeStarProps(schema, obj, json) {
         // descr = Object.getOwnPropertyDescriptor(obj, key) || {}
 
         //if (descr.get && !descr.set) continue
-
-        try {
-            obj[key] = value
-        } catch (e) {
-            console.warn(e);
-        }
+        obj[key] = value
     }
 }
 
